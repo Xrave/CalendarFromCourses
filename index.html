@@ -3,6 +3,7 @@
 	<head>
 		<script type="text/javascript" src="js/ics.js"></script>
         <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/underscore.js/1.8.3/underscore-min.js"></script>
+        <script type="text/javascript" src="js/datejscache.js"></script>
         <script type='text/javascript' src='js/parser.js'></script>
         <!-- Latest compiled and minified CSS -->
         <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/css/bootstrap.min.css">
@@ -25,11 +26,13 @@
                 <li>Go to <a href="axess.stanford.edu">Axess</a> and copy your classes listed under "This Week's Schedule" of the Student tab. Begin the copy at the first "Deadlines" icon to left of class one.</li>
                 <div class="example"><img src="images/step1.png"></div>
 
+                <li>Input the start date of the quarter. &ensp; <input class="start-date" id="startDate" placeholder="mm/dd/yyyy"></li>
+                
                 <li>Paste text below</li>
-                <textarea class="classes" id="classes" rows="5"></textarea>
+                <textarea class="classes" id="classes" rows="3"></textarea>
 
                 <li>How many weeks is the quarter? (including breaks) &ensp; <input class="weeks" id="weeks" value="10"></input></li>
-                <button class="submit btn btn-large btn-success" onclick="parseCourseworkString">Get iCal</button>
+                <button class="submit btn btn-large btn-success" onclick="parseCourseworkString()">Get iCal</button>
 
             </ol>
         </div>

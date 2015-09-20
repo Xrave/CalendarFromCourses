@@ -288,7 +288,7 @@ var ics = function() {
                 'CLASS:PUBLIC',
                 'DESCRIPTION:' + description,
                 'DTSTART;VALUE=DATE:' + start,
-                'RRULE:FREQ=WEEKLY;COUNT='+numweeks+';WKST=SU;BYDAY='+repeatdays,
+                'RRULE:FREQ=WEEKLY;COUNT='+numweeks+';WKST=SU;BYDAY='+repeatdays.toUpperCase(),
                 'DTEND;VALUE=DATE:' + end,
                 'LOCATION:' + location,
                 'SUMMARY;LANGUAGE=en-us:' + subject,
