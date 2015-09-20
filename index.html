@@ -1,12 +1,38 @@
 <!DOCTYPE html>
-<head>
-	<script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/underscore.js/1.8.3/underscore-min.js"></script>
-	<script type="text/javascript" src="js/ics.js"></script>
-	<script type="text/javascript" src="js/parser.js">
-	<style>
+<html>
+	<head>
+		<script type="text/javascript" src="js/ics.js"></script>
+        <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/underscore.js/1.8.3/underscore-min.js"></script>
+        <!-- Latest compiled and minified CSS -->
+        <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/css/bootstrap.min.css">
 
-	</style>
-</head>
-<body>
-</body>
+        <!-- Optional theme -->
+        <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/css/bootstrap-theme.min.css">
+        
+		<link rel="stylesheet" type="text/css" href="css/main.css">
+	</head>
+
+	<body>
+
+    <div class="container">
+        <h1 class="title">Calendar from Courses</h1>
+        <h5 class="title text-muted">Easily create an ICS file from your course list for iCal</h5>
+
+        <div class="instructions">
+            <h3>Instructions</h3>
+            <ol>
+                <li>Go to <a href="axess.stanford.edu">Axess</a> and copy your classes listed under "This Week's Schedule" of the Student tab. Begin the copy at the first "Deadlines" icon to left of class one.</li>
+                <div class="example"><img src="images/step1.png"></div>
+
+                <li>Paste text below</li>
+                <textarea class="classes" id="classes" rows="5"></textarea>
+
+                <li>How many weeks is the quarter? (including breaks) &ensp; <input class="weeks" id="weeks" value="10"></input></li>
+                <button class="submit btn btn-large btn-success" onclick="parseCourseworkString">Get iCal</button>
+
+            </ol>
+        </div>
+    </div>
+
+	</body>
 </html>

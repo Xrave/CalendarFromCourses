@@ -1,0 +1,27 @@
+.title {
+    text-align: center;
+}
+
+.instructions {
+    width: 50%;
+    margin-left: 25%;
+    margin-right: 25%;
+}
+
+img {
+    height: auto;
+    width: 100%;
+}
+
+.classes {
+    width: 100%;
+}
+
+.submit {
+    width: 100%;
+    margin-top: 10px;
+}
+
+li {
+    margin-top: 10px;
+}
