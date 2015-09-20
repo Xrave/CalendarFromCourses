@@ -10,6 +10,9 @@ var weekAbbrev = {
     Su: "sunday"
 };
 
+var badString = function(str){
+	return str == null || str.trim().length === 0;
+}
 //returns an ics object
 var parseCourseworkString = function(){
 
@@ -17,6 +20,14 @@ var parseCourseworkString = function(){
         quarterLength = document.getElementById("weeks").value.trim(),
         calObj = ics(),
         startDate = document.getElementById("startDate").value.trim() + " ";
+
+    if(badString(cs)){ alert("Please copy paste in the Axess course table"); return; }
+    if(badString(startDate)){ alert("Please input start date in the MM/DD/YYYY format"); return; }
+    if(badString(quarterLength) || !_.isNumber(parseInt(quarterLength)) || parseInt(quarterLength) < 1){ 
+    	alert("Please insert a valid number of weeks in the quarter.");
+    	return;
+    }
+
     
 	//removes descrepancy between Firefox and Chrome copy pasting.
 	var prelimFilter = _.chain(cs.split("\n")).filter(function(row){
@@ -33,8 +44,14 @@ var parseCourseworkString = function(){
             location = items[5],
             timeObj = items[4].split(" "),
             timeStart = new Date(startDate + timeObj[1].substr(0, timeObj[1].length - 2) + " " + timeObj[1].substr(-2)),
-            timeEnd = new Date(startDate + timeObj[3].substr(0, timeObj[3].length - 2) + " " + timeObj[3].substr(-2)),
-            wkNumber = timeStart.getWeek(),
+            timeEnd = new Date(startDate + timeObj[3].substr(0, timeObj[3].length - 2) + " " + timeObj[3].substr(-2));
+
+        if(timeStart===null || timeEnd === null || timeStart.toString()==="Invalid Date" || timeEnd.toString()==="Invalid Date"){
+        	alert("Please input a correct start date format of MM/DD/YYYY");
+        	throw "Badly formatted Start Date  (╯°□°）╯︵ ┻━┻";
+        }
+
+        var wkNumber = timeStart.getWeek(),
             repeat = timeObj[0].match(/.{1,2}/g).join(','),
             shiftedStart = Date.today().setWeek(wkNumber).sunday().last()[weekAbbrev[repeat.split(',')[0]]]().at(timeObj[1]), //Alterations to the dates because the library acts strangely
             shiftedEnd =   Date.today().setWeek(wkNumber).sunday().last()[weekAbbrev[repeat.split(',')[0]]]().at(timeObj[3]);
