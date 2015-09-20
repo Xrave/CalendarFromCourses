@@ -1,2 +1,2 @@
 # CalendarFromCourses
-Generates a ICS file from Axess courses list.
+Generates an ICS file from Axess courses list.
