@@ -1,5 +1,9 @@
 'use strict';
 
+if (/^((?!chrome).)*safari/i.test(navigator.userAgent)){
+    alert("We have detected you are using Safari. Please switch to Chrome or Firefox to properly use this app.");
+}
+
 var weekAbbrev = {
     Mo: "monday",
     Tu: "tuesday",
