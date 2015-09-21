@@ -1,5 +1,10 @@
+body {
+    font-family: 'Dosis', sans-serif;
+}
+
 .title {
     text-align: center;
+    font-family: 'Dosis', sans-serif;
 }
 
 .instructions {
