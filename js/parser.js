@@ -32,7 +32,7 @@ var parseCourseworkString = function(){
     	return;
     }
 
-    
+    var counter = 0;
 	//removes descrepancy between Firefox and Chrome copy pasting.
 	var prelimFilter = _.chain(cs.split("\n")).filter(function(row){
 		return row.trim().length > 0
@@ -41,7 +41,10 @@ var parseCourseworkString = function(){
 	_.chain(prelimFilter).map(function(row){
 		return _.compact(row.split("\n"));
 	}).filter(function(items){
-		return items.length > 3;
+		if(items.length != 6 && items.length > 3){
+			counter ++;
+		}
+		return items.length === 6;
 	}).map(function(items){
 		var name = items[0],
             desc = items[1] + " Unit: " + items[2] + " Grading:" + items[3],
@@ -64,6 +67,10 @@ var parseCourseworkString = function(){
 	});
 
 	calObj.download("schedule", ".ics");
+
+	if(counter > 0){
+		alert(counter + (counter > 1 ? " classes ": " class ") + "failed to be exported. The formatting was weird.")
+	}
 
 }
 
