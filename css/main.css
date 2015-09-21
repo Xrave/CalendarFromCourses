@@ -1,5 +1,7 @@
 body {
     font-family: 'Dosis', sans-serif;
+    background-image: url("images/footer_lodyas.png");
+    color: whitesmoke;
 }
 
 .title {
@@ -30,4 +32,17 @@ img {
 
 li {
     margin-top: 10px;
+}
+
+input, textarea {
+    color: black;
+}
+
+a {
+    color: pink;
+}
+
+a:hover {
+    color: deeppink;
+    text-decoration: none;
 }
