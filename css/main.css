@@ -28,6 +28,7 @@ img {
 .submit {
     width: 100%;
     margin-top: 10px;
+    margin-bottom: 20px;
 }
 
 li {
@@ -48,7 +49,7 @@ a:hover {
 }
 
 .site-footer {
-    position: absolute;
+/*    position: absolute;*/
     width: 100%;
     bottom: 0;
     text-align: center;
